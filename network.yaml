@@ -1,0 +1,15 @@
+# network.yaml
+apiVersion: v1
+kind: NetworkPolicy
+metadata:
+  name: toy-workshop-network
+spec:
+  podSelector:
+    matchLabels:
+      app: flask-app
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: postgres
+
